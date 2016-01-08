@@ -11,7 +11,7 @@
         
         <div class="col-md-4">
           <%= f.label :name %>
-          <%= f.text_field :name, :required => true, placeholder: 'first name', :error_html => { :id => "name_error"} %>
+          <%= f.text_field :name, :required => true, placeholder: 'first name', error: "Can not be blank" %>
         </div>
         
         <div class="col-md-4">
