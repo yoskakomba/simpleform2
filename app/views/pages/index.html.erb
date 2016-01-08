@@ -1,0 +1,196 @@
+<h2>Registration Form</h2>
+<hr/>
+
+
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= simple_form_for @registrations do |f| %>
+      
+      <div class="row"><!-- NAME. LASTNAME, DOB -->
+        
+        <div class="col-md-4">
+          <%= f.label :name %>
+          <%= f.text_field :name, :required => true, placeholder: 'first name', :error_html => { :id => "name_error"} %>
+        </div>
+        
+        <div class="col-md-4">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, :required => true, placeholder: 'last name', error: "Can not be blank" %>
+        
+        </div>
+        
+        <div class="col-md-4">
+          <%= f.label :date_of_birth %>
+          <%= f.text_field :date_of_birth, :required => true, placeholder: 'Your date of birth ex: 12/12/1980', error: "Can not be blank" %>
+        
+        </div>
+    
+      </div><!-- NAME. LASTNAME, DOB -->
+      
+      <div class="row"><!-- ADDRESS/STATE/SUBURB/POSTCODE -->
+      
+        <div class="col-md-3">
+          <%= f.label :address %>
+          <%= f.text_field :address, :required => true, placeholder: 'Your primary home address', error: "Can not be blank" %>
+        </div>
+        
+        <div class="col-md-3">
+          <%= f.label :suburb %>
+          <%= f.text_field :suburb, :required => true, placeholder: 'Your sub urban area', error: "Can not be blank" %>
+        </div>
+        
+        <div class="col-md-3">
+          <%= f.label :state %>
+          <%= f.text_field :state, :required => true, placeholder: 'Your state' %>
+        </div>
+        
+        <div class="col-md-3">
+          <%= f.label :post_code %>
+          <%= f.text_field :post_code, :required => true, placeholder: 'Your postal code' %>
+        </div>
+      
+      </div><!-- ADDRESS/STATE/SUBURB/POSTCODE -->
+      
+      <div class="row"><!-- TELEPHONE/PRIVATE HEALTH FUND ID -->
+      
+        <div class="col-md-6">
+          <%= f.label :telephone %>
+          <%= f.text_field :telephone, placeholder: 'Mobile or landline' %>
+        </div>
+        
+        <div class="col-md-6">
+          <%= f.label :private_health_fund %>
+          <%= f.text_field :private_health_fund, placeholder: 'Your private health fund ID' %>
+        </div>
+        
+      </div><!-- TELEPHONE/PRIVATE HEALTH FUND ID -->
+      
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :email %>
+          <%= f.email_field :email, placeholder: 'Your primary email address' %>
+        </div>
+        
+        <div class="col-md-6">
+          
+          <%= f.input :news_letter, as: :boolean, checked_value: true, unchecked_value: false, required: false, hint: '*receive newsletter from us?' %>
+
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        
+        <div class="col-md-6 ">
+          
+          <%= f.input :reference, as: :check_boxes, label: 'How did you hear of us?',
+         collection: [
+         'Drive or Walk by',
+         'Google Online',
+         'Yellow Pages Online',
+         'Gift Voucher',
+         'Yellow Pages Paper',
+         'Friend/Referral',
+         'Other'] %>
+        </div>
+        
+        <div class="col-md-6">
+          
+          <%= f.input :preference, as: :check_boxes, label: 'Your preference in your massage therapy',
+          collection: [
+            'Quiet',
+            'Treatment description',
+            'Gentle Treatment'] %>
+        </div>
+        
+      </div><br/>
+      
+      <div class="row">
+
+        <div class="col-md-6">
+          
+          <%= f.input :body_conditions, as: :check_boxes, label: 'Your health conditons',
+           collection: [
+           'Allergies/Asthma',
+           'Open Wounds',
+           'Numbness/Tinglint',
+           'Skin Condition',
+           'Headaches/Migraine',
+           'Recent Illness/Surgery',
+           'Varicose Veins',
+           'Diabetes',
+           'Osteoporosis'] %>
+        </div>
+        
+        <div class="col-md-6">
+          
+          <%= f.input :body_area, as: :check_boxes, label: 'Body area you want to skip',
+           collection: [
+           'Face',
+           'Head',
+           'Chest',
+           'Stomach',
+           'Back',
+           'Buttocks',
+           'Arms',
+           'Legs',
+           'Hands',
+           'Feet'] %>
+        </div>
+
+      </div>
+      <div><hr/></div>
+            
+      <div class="row"><!-- OCCUPATION/EXERCISEROUTINE/CONDITIONS -->
+      
+        <div class="col-md-6">
+          <%= f.label :occupation %>
+          <%= f.text_field :occupation, placeholder: 'Current Occupation' %>
+        </div>
+        
+        <div class="col-md-6">
+          <%= f.label :exercise_routine %>
+          <%= f.text_field :exercise_routine, placeholder: 'Your routine daily exercise' %>
+        </div>
+        
+      </div><!-- OCCUPATION/EXERCISEROUTINE/CONDITIONS -->
+      
+      <div class="row"><!-- PASTMEDICALHISTORY/MEDICATION/ -->
+      
+        <div class="col-md-6">  
+          <%= f.label :past_medical_history %>
+          <%= f.text_area :past_medical_history, placeholder: 'Past medical history within 5 years' %>
+        </div>
+        
+        <div class="col-md-6">
+          <%= f.label :medication %>
+          <%= f.text_area :medication, placeholder: 'Medication history within 5 years' %>
+        </div>
+      
+      </div><!-- PASTMEDICALHISTORY/MEDICATION/ -->
+      
+      <div class="row"><!-- SYMPTOMS/OTHER EXPERIENCE -->
+      
+        <div class="col-md-6">  
+          <%= f.label :symptoms %>
+          <%= f.text_area :symptoms, placeholder: 'Do you have any symptoms' %>
+        </div>
+        
+        <div class="col-md-6">
+          <%= f.label :other_experience %>
+          <%= f.text_area :other_experience, placeholder: 'Do you have other experience regarding massage therapy' %>
+        </div>
+      
+      </div><!-- SYMPTOMS/OTHER EXPERIENCE -->
+      
+      <%= f.submit 'Submit', class: "btn btn-success" %>
+    
+    <% end %>
+  
+  
+  </div><!-- WELL -->
+  
+</div><br><!-- row -->
+<br>
+<hr/>
