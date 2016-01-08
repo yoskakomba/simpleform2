@@ -1,5 +1,5 @@
 class Registration < ActiveRecord::Base
-  validates :name, :minimum => 5
+  validates :name, presence: true
   validates :last_name, presence: true 
   validates :date_of_birth, presence: true
   validates :address, presence: true
