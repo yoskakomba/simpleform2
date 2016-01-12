@@ -1,4 +1,9 @@
 class Registration < ActiveRecord::Base
+  attr_accessor :reference
+  attr_accessor :body_conditions
+  attr_accessor :preference
+  attr_accessor :custom_field
+  attr_accessor :body_area
   validates :name, presence: true
   validates :last_name, presence: true 
   validates :date_of_birth, presence: true
@@ -19,4 +24,5 @@ class Registration < ActiveRecord::Base
   validates :other_experience, presence: true
   validates :preference, presence: true
   validates :body_area, presence: true
+  validates :terms_of_service, acceptance: true
 end 

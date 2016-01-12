@@ -30,22 +30,17 @@
       
       <div class="row"><!-- ADDRESS/STATE/SUBURB/POSTCODE -->
       
-        <div class="col-md-3">
+        <div class="col-md-4">
           <%= f.label :address %>
           <%= f.text_field :address, :required => true, placeholder: 'Your primary home address', error: "Can not be blank" %>
         </div>
         
-        <div class="col-md-3">
+        <div class="col-md-4">
           <%= f.label :suburb %>
           <%= f.text_field :suburb, :required => true, placeholder: 'Your sub urban area', error: "Can not be blank" %>
         </div>
         
-        <div class="col-md-3">
-          <%= f.label :state %>
-          <%= f.text_field :state, :required => true, placeholder: 'Your state' %>
-        </div>
-        
-        <div class="col-md-3">
+        <div class="col-md-4">
           <%= f.label :post_code %>
           <%= f.text_field :post_code, :required => true, placeholder: 'Your postal code' %>
         </div>
@@ -60,8 +55,8 @@
         </div>
         
         <div class="col-md-6">
-          <%= f.label :private_health_fund %>
-          <%= f.text_field :private_health_fund, placeholder: 'Your private health fund ID' %>
+          
+          <%= f.input :private_health_fund, as: :boolean, checked_value: true, unchecked_value: false, required: false %>
         </div>
         
       </div><!-- TELEPHONE/PRIVATE HEALTH FUND ID -->
@@ -74,27 +69,43 @@
         
         <div class="col-md-6">
           
-          <%= f.input :news_letter, as: :boolean, checked_value: true, unchecked_value: false, required: false, hint: '*receive newsletter from us?' %>
+          <%= f.input :news_letter, as: :boolean, checked_value: true, unchecked_value: false, required: false, 
+          hint: '*Are you interested receiving newsletter and occasional massage discount offers?' %>
 
         </div>
         
-      </div>
+      </div><br/>
       
       <div class="row">
         
         <div class="col-md-6 ">
           
-          <%= f.input :reference, as: :check_boxes, label: 'How did you hear of us?',
+          <%= f.input :reference, as: :check_boxes, label: 'How did you hear us?',
          collection: [
          'Drive or Walk by',
-         'Google Online',
-         'Yellow Pages Online',
          'Gift Voucher',
-         'Yellow Pages Paper',
-         'Friend/Referral',
-         'Other'] %>
+         'Google search',
+         'Yellow Pages',
+         'Yelp',
+         'Trip Advisor',
+         'Start local',
+         '10best',
+         'Time Out',
+         'Friend referral'] %>
         </div>
         
+        <div class="row">
+          
+          <div class="col-md-6">
+            <%= f.input :reference, as: :text, label: 'Other References', placeholder: 'please write any references you received about us' %>
+          </div>
+          
+        </div>
+ 
+      </div><br/>
+      
+      <div class="row">
+      
         <div class="col-md-6">
           
           <%= f.input :preference, as: :check_boxes, label: 'Your preference in your massage therapy',
@@ -102,8 +113,18 @@
             'Quiet',
             'Treatment description',
             'Gentle Treatment'] %>
+            
         </div>
         
+        <div class="col-md-6">
+          <%= f.input :exercise_routine, as: :select, prompt: '*Average per week', 
+          collection: [
+            'Never',
+            'Light 1-2 times',
+            'Moderate 3-4 times',
+            'Competitive 5-7 times'] %>
+        </div>
+      
       </div><br/>
       
       <div class="row">
@@ -128,6 +149,7 @@
           <%= f.input :body_area, as: :check_boxes, label: 'Body area you want to skip',
            collection: [
            'Face',
+           'Hair/Scalp',
            'Head',
            'Chest',
            'Stomach',
@@ -183,6 +205,27 @@
         </div>
       
       </div><!-- SYMPTOMS/OTHER EXPERIENCE -->
+      
+      <div class="row">
+        
+        <div class="col-md-6">
+          <%= f.label :terms_of_service %>
+          <h6><strong>Arrival Time</strong></h6>
+          <p>Please arrive at least 10 minutes before your treatment. New clients will be asked to fill out a record form.</p>
+          <h6><strong>Arriving Late</strong></h6>
+          <p>All treatments conclude at the scheduled time.</p>
+          <h6><strong>Cancellation Policy</strong></h6>
+          <p>When you reschedule or cancel an appointment, we require 24 hours notice;
+          cancellation without notice will incur a cancellation fee of $30. 
+          Confirmation of an appointment is acknowledgement of this cancellation policy.</p>
+          
+          
+        </div>
+        <div class="col-md-6">
+          <%= f.input :terms_of_service, as: :boolean, checked_value: true, unchecked_value: false, label: 'I Agree with T.O.S', hint: 'By checking the checkbox and click the submit button I agree with Terms of Service of Stable Massage.' %>
+        </div>
+      
+      </div>
       
       <%= f.submit 'Submit', class: "btn btn-success" %>
     
