@@ -172,8 +172,8 @@
         </div>
         
         <div class="col-md-6">
-          <%= f.label :exercise_routine %>
-          <%= f.text_field :exercise_routine, placeholder: 'Your routine daily exercise' %>
+          <%= f.label :past_medical_history %>
+          <%= f.text_area :past_medical_history, placeholder: 'Past medical history within 5 years' %>
         </div>
         
       </div><!-- OCCUPATION/EXERCISEROUTINE/CONDITIONS -->
@@ -181,25 +181,20 @@
       <div class="row"><!-- PASTMEDICALHISTORY/MEDICATION/ -->
       
         <div class="col-md-6">  
-          <%= f.label :past_medical_history %>
-          <%= f.text_area :past_medical_history, placeholder: 'Past medical history within 5 years' %>
+          <%= f.label :medication %>
+          <%= f.text_area :medication, placeholder: 'Medication history within 5 years' %>
         </div>
         
         <div class="col-md-6">
-          <%= f.label :medication %>
-          <%= f.text_area :medication, placeholder: 'Medication history within 5 years' %>
+          <%= f.label :symptoms %>
+          <%= f.text_area :symptoms, placeholder: 'Do you have any symptoms' %>
         </div>
       
       </div><!-- PASTMEDICALHISTORY/MEDICATION/ -->
       
       <div class="row"><!-- SYMPTOMS/OTHER EXPERIENCE -->
-      
-        <div class="col-md-6">  
-          <%= f.label :symptoms %>
-          <%= f.text_area :symptoms, placeholder: 'Do you have any symptoms' %>
-        </div>
         
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2">
           <%= f.label :other_experience %>
           <%= f.text_area :other_experience, placeholder: 'Do you have other experience regarding massage therapy' %>
         </div>
@@ -208,7 +203,7 @@
       
       <div class="row">
         
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2">
           <%= f.label :terms_of_service %>
           <h6><strong>Arrival Time</strong></h6>
           <p>Please arrive at least 10 minutes before your treatment. New clients will be asked to fill out a record form.</p>
@@ -218,13 +213,17 @@
           <p>When you reschedule or cancel an appointment, we require 24 hours notice;
           cancellation without notice will incur a cancellation fee of $30. 
           Confirmation of an appointment is acknowledgement of this cancellation policy.</p>
-          
-          
-        </div>
-        <div class="col-md-6">
-          <%= f.input :terms_of_service, as: :boolean, checked_value: true, unchecked_value: false, label: 'I Agree with T.O.S', hint: 'By checking the checkbox and click the submit button I agree with Terms of Service of Stable Massage.' %>
+
         </div>
       
+      </div>
+      
+      <div class="row">
+      
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.input :terms_of_service, as: :boolean, checked_value: true, unchecked_value: false, label: 'I Agree with T.O.S', 
+          hint: 'By checking the checkbox and click the submit button I agree with Terms of Service of Stable Massage.' %>
+        </div>
       </div>
       
       <%= f.submit 'Submit', class: "btn btn-success" %>
