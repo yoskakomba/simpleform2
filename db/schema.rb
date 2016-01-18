@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112030119) do
+ActiveRecord::Schema.define(version: 20160115052536) do
+
+  create_table "references", force: :cascade do |t|
+    t.string "drive_and_walk_by"
+    t.string "google_search"
+    t.string "gift_voucher"
+    t.string "yellow_pages"
+    t.string "yelp"
+    t.string "trip_advisor"
+    t.string "start_local"
+    t.string "tenbest"
+    t.string "time_out"
+    t.string "friend_referral"
+  end
 
   create_table "registrations", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160112030119) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "terms_of_service"
+    t.string   "other_references"
   end
 
 end

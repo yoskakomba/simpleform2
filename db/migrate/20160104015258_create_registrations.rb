@@ -23,6 +23,7 @@ class CreateRegistrations < ActiveRecord::Migration
       t.string :preference
       t.string :body_area
       t.string :terms_of_service
+      t.string :other_references
       t.timestamps
     end
   end

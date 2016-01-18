@@ -1,0 +1,5 @@
+testing specs for registration:
+
+- name, email, lastname, address and all string must be present
+- name must be between 5 characters and less than 100 characters
+- 

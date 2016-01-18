@@ -1,53 +1,50 @@
-<h2>Registration Form</h2>
-<hr/>
-
-
+<h2>Registration Froms</h2>
+<hr>
 
 <div class="row">
-  <div class="well col-md-8 col-md-offset-2">
-    <%= simple_form_for @registrations do |f| %>
+    <div class="well col-md-8 col-md-offset-2">
+    
+      <%= form_for @registration, validate:true do |f| %>
       
-      <div class="row"><!-- NAME. LASTNAME, DOB -->
-        
+      <div class="row"><!-- FIELD FOR NAME / LAST NAME / DOB -->
+      
         <div class="col-md-4">
           <%= f.label :name %>
-          <%= f.text_field :name, :required => true, placeholder: 'first name', error: "Can not be blank" %>
+          <%= f.text_field :name, placeholder: 'first name' %>
         </div>
         
         <div class="col-md-4">
           <%= f.label :last_name %>
-          <%= f.text_field :last_name, :required => true, placeholder: 'last name', error: "Can not be blank" %>
-        
+          <%= f.text_field :last_name, placeholder: 'last name' %>
         </div>
         
         <div class="col-md-4">
           <%= f.label :date_of_birth %>
-          <%= f.text_field :date_of_birth, :required => true, placeholder: 'Your date of birth ex: DD/MM/YYYY', error: "Can not be blank" %>
-        
+          <%= f.text_field :date_of_birth, placeholder: 'Your date of birth ex: DD/MM/YYYY' %>
         </div>
-    
-      </div><!-- NAME. LASTNAME, DOB -->
+        
+      </div>
       
-      <div class="row"><!-- ADDRESS/STATE/SUBURB/POSTCODE -->
+      <div class="row"><!-- FIELD FOR ADDRESS / SUBURB/ POSTCODE -->
       
         <div class="col-md-4">
           <%= f.label :address %>
-          <%= f.text_field :address, :required => true, placeholder: 'Your primary home address', error: "Can not be blank" %>
+          <%= f.text_field :address, placeholder: 'Your primary home address' %>
         </div>
         
         <div class="col-md-4">
           <%= f.label :suburb %>
-          <%= f.text_field :suburb, :required => true, placeholder: 'Your sub urban area', error: "Can not be blank" %>
+          <%= f.text_field :suburb, placeholder: 'Your sub urban area' %>
         </div>
         
         <div class="col-md-4">
           <%= f.label :post_code %>
-          <%= f.text_field :post_code, :required => true, placeholder: 'Your postal code' %>
+          <%= f.text_field :post_code, placeholder: 'Address postal code' %>
         </div>
+        
+      </div>
       
-      </div><!-- ADDRESS/STATE/SUBURB/POSTCODE -->
-      
-      <div class="row"><!-- TELEPHONE/PRIVATE HEALTH FUND ID -->
+      <div class="row"><!-- FIELD FOR TELEPHONE AND EMAIL -->
       
         <div class="col-md-6">
           <%= f.label :telephone %>
@@ -55,184 +52,148 @@
         </div>
         
         <div class="col-md-6">
-          
-          <%= f.input :private_health_fund, as: :boolean, checked_value: true, unchecked_value: false, required: false %>
-        </div>
-        
-      </div><!-- TELEPHONE/PRIVATE HEALTH FUND ID -->
-      
-      <div class="row">
-        <div class="col-md-6">
           <%= f.label :email %>
-          <%= f.email_field :email, placeholder: 'Your primary email address' %>
+          <%= f.email_field :email, placeholder: 'Your email address' %>
         </div>
         
-        <div class="col-md-6">
-          
-          <%= f.input :news_letter, as: :boolean, checked_value: true, unchecked_value: false, required: false, 
-          hint: '*Are you interested receiving newsletter and occasional massage discount offers?' %>
-
-        </div>
-        
-      </div><br/>
-      
-      <div class="row">
-        
-        <div class="col-md-6 ">
-          
-          <%= f.input :reference, as: :check_boxes, label: 'How did you hear us?',
-         collection: [
-         'Drive or Walk by',
-         'Gift Voucher',
-         'Google search',
-         'Yellow Pages',
-         'Yelp',
-         'Trip Advisor',
-         'Start local',
-         '10best',
-         'Time Out',
-         'Friend referral'] %>
-        </div>
-        
-        <div class="row">
-          
-          <div class="col-md-6">
-            <%= f.input :reference, as: :text, label: 'Other References', placeholder: 'please write any references you received about us' %>
-          </div>
-          
-        </div>
- 
-      </div><br/>
-      
-      <div class="row">
-      
-        <div class="col-md-6">
-          
-          <%= f.input :preference, as: :check_boxes, label: 'Your preference in your massage therapy',
-          collection: [
-            'Quiet',
-            'Treatment description',
-            'Gentle Treatment'] %>
-            
-        </div>
-        
-        <div class="col-md-6">
-          <%= f.input :exercise_routine, as: :select, prompt: '*Average per week', 
-          collection: [
-            'Never',
-            'Light 1-2 times',
-            'Moderate 3-4 times',
-            'Competitive 5-7 times'] %>
-        </div>
-      
-      </div><br/>
-      
-      <div class="row">
-
-        <div class="col-md-6">
-          
-          <%= f.input :body_conditions, as: :check_boxes, label: 'Your health conditons',
-           collection: [
-           'Allergies/Asthma',
-           'Open Wounds',
-           'Numbness/Tinglint',
-           'Skin Condition',
-           'Headaches/Migraine',
-           'Recent Illness/Surgery',
-           'Varicose Veins',
-           'Diabetes',
-           'Osteoporosis'] %>
-        </div>
-        
-        <div class="col-md-6">
-          
-          <%= f.input :body_area, as: :check_boxes, label: 'Body area you want to skip',
-           collection: [
-           'Face',
-           'Hair/Scalp',
-           'Head',
-           'Chest',
-           'Stomach',
-           'Back',
-           'Buttocks',
-           'Arms',
-           'Legs',
-           'Hands',
-           'Feet'] %>
-        </div>
-
       </div>
-      <div><hr/></div>
-            
-      <div class="row"><!-- OCCUPATION/EXERCISEROUTINE/CONDITIONS -->
+      
+      <div class="row checkbox"><!-- FIELD FOR PRIVATE HEALTH FUND & NEWSLETTER CHECKBOX -->
+      
+        <div class="col-md-6">
+          <%= f.label :news_letter %>
+          <%= f.check_box :news_letter %> 
+          <p>*Interested in receiving news or promotion from us?</p>
+        </div>
+        
+        <div class="col-md-6">
+         <%= f.label :private_health_fund %>
+         <%= f.check_box :private_health_fund %>
+         <p>*Do you have private health fund?</p>
+        </div>
+        
+      </div>
+      <div class="row"></div>
+      
+      <div class="row checkbox"><!-- FIELD FOR REFERENCES AND PREFERENCE -->
+      
+        <div class="col-md-6">
+          <b>How Did You Hear About Us?</b><br/><br/ >
+          <%= check_box_tag :drive_and_walk_by %> <h8>Drive and Walk by</h8> <br/>
+          <%= check_box_tag :google_search %> <h8>Google Search</h8> <br/>
+          <%= check_box_tag :gift_voucher %> <h8>Gift voucher</h8> <br/>
+          <%= check_box_tag :yellow_pages %> <h8>Google Search</h8> <br/>
+          <%= check_box_tag :yelp %> <h8>Yelp</h8> <br/>
+          <%= check_box_tag :trip_advisor %> <h8>Trip Advisor</h8> <br/>
+          <%= check_box_tag :start_local %> <h8>Start Local</h8> <br/>
+          <%= check_box_tag :tenbest %> <h8>10Best</h8> <br/>
+          <%= check_box_tag :time_out %> <h8>Time Out</h8> <br/>
+          <%= check_box_tag :friend_referral %> <h8>Friend referral</h8> <br/><br/>
+          <b>Other References</b><br/>
+          <%= text_field :other_references, placeholder: 'Do you have any other references?'%>
+        </div>
+        
+        <div class="col-md-6">
+          <b>Your Preference in Massage Therapy</b><br/><br/ >
+          <%= check_box_tag :quiet %> <h8>Quiet environment</h8> <br/>
+          <%= check_box_tag :treatment_description %> <h8>Treatment Description</h8> <br/>
+          <%= check_box_tag :gentle_treatment %> <h8>Gentle Treatment</h8> <br/><br/>
+          <b>Excercise Routine</b><br/>
+          <%= f.select :exercise_routine, ['Never', 'Light 1-2 times', 'Moderate 3-4 times', 'Competitive 5-7 times'], prompt: 'How many times do you excercise?' %>
+      
+        </div>
+        
+      </div>
+      
+      <div class="row checkbox">
+      
+        <div class="col-md-6">
+          <b>Body area you want to skip</b><br/><br/ >
+          <%= check_box_tag :face %> <h8>Face</h8> <br/>
+          <%= check_box_tag :hair_scalp %> <h8>Hair Scalp</h8> <br/>
+          <%= check_box_tag :head %> <h8>Head</h8> <br/>
+          <%= check_box_tag :chest %> <h8>Chest</h8> <br/>
+          <%= check_box_tag :stomach %> <h8>Stomach</h8> <br/>
+          <%= check_box_tag :back %> <h8>Back</h8> <br/>
+          <%= check_box_tag :buttocks %> <h8>Buttocks</h8> <br/>
+          <%= check_box_tag :arms %> <h8>Arms</h8> <br/>
+          <%= check_box_tag :legs %> <h8>Legs</h8> <br/>
+          <%= check_box_tag :hands %> <h8>Hands</h8><br/>
+          <%= check_box_tag :feet %> <h8>Feet</h8><br/>
+        </div>
+        
+        <div class="col-md-6">
+          <b>Existing Health Condition</b><br/><br/ >
+          <%= check_box_tag :allergies_or_asthma %> <h8>Allergies or Asthma</h8> <br/>
+          <%= check_box_tag :open_wounds %> <h8>Open Wounds</h8> <br/>
+          <%= check_box_tag :numbness_tinglint %> <h8>Numbness/Tinglint</h8> <br/>
+          <%= check_box_tag :skin_condition %> <h8>Skin Condition</h8> <br/>
+          <%= check_box_tag :headaches_migraine %> <h8>Headaches/Migraine</h8> <br/>
+          <%= check_box_tag :recent_illness_or_surgery %> <h8>Recent Illness or Surgery</h8> <br/>
+          <%= check_box_tag :varicose_veins %> <h8>Varicose Veins</h8> <br/>
+          <%= check_box_tag :diabetes %> <h8>Diabetes</h8> <br/>
+          <%= check_box_tag :osteoporosis %> <h8>Osteoporosis</h8> <br/><br/>
+        </div>
+
+      </div><br/>
+      
+      <div class="row"><!-- FIELD FOR OCCUPATION AND PAST MEDICAL HISTORY -->
       
         <div class="col-md-6">
           <%= f.label :occupation %>
-          <%= f.text_field :occupation, placeholder: 'Current Occupation' %>
+          <%= f.text_area :occupation, placeholder: "Your main job" %>
         </div>
         
         <div class="col-md-6">
           <%= f.label :past_medical_history %>
-          <%= f.text_area :past_medical_history, placeholder: 'Past medical history within 5 years' %>
+          <%= f.text_area :past_medical_history, placeholder: "Please tell us if you have medication history within 5 years before we proceed your therapy" %>
         </div>
         
-      </div><!-- OCCUPATION/EXERCISEROUTINE/CONDITIONS -->
+      </div>
       
-      <div class="row"><!-- PASTMEDICALHISTORY/MEDICATION/ -->
+      <div class="row"><!-- FIELD FOR MEDICATION AND SYMPTOMS -->
       
-        <div class="col-md-6">  
+        <div class="col-md-6">
           <%= f.label :medication %>
-          <%= f.text_area :medication, placeholder: 'Medication history within 5 years' %>
+          <%= f.text_area :medication, placeholder: "Please tell us if you have medication history within 5 years before we proceed your therapy" %>
         </div>
         
         <div class="col-md-6">
           <%= f.label :symptoms %>
-          <%= f.text_area :symptoms, placeholder: 'Do you have any symptoms' %>
+          <%= f.text_area :symptoms, placeholder: "Please tell us if you have any symptoms regarding your existing health condition before we proceed your therapy" %>
         </div>
-      
-      </div><!-- PASTMEDICALHISTORY/MEDICATION/ -->
-      
-      <div class="row"><!-- SYMPTOMS/OTHER EXPERIENCE -->
         
-        <div class="col-md-8 col-md-offset-2">
-          <%= f.label :other_experience %>
-          <%= f.text_area :other_experience, placeholder: 'Do you have other experience regarding massage therapy' %>
-        </div>
-      
-      </div><!-- SYMPTOMS/OTHER EXPERIENCE -->
+      </div>
       
       <div class="row">
-        
-        <div class="col-md-8 col-md-offset-2">
-          <%= f.label :terms_of_service %>
-          <h6><strong>Arrival Time</strong></h6>
+      
+        <div class="col-md-6 col-md-offset-3">
+          <b>Terms Of Service</b><br/>
+          
+          <h7>Arrival Time</h7>
           <p>Please arrive at least 10 minutes before your treatment. New clients will be asked to fill out a record form.</p>
-          <h6><strong>Arriving Late</strong></h6>
+          <h7>Arrival Late</h7>
           <p>All treatments conclude at the scheduled time.</p>
-          <h6><strong>Cancellation Policy</strong></h6>
-          <p>When you reschedule or cancel an appointment, we require 24 hours notice;
-          cancellation without notice will incur a cancellation fee of $30. 
+          <h7>Cancelation Policy<h7>
+          <p>When you reschedule or cancel an appointment, we require 24 hours notice; cancellation without notice will incur a cancellation fee of $30.
           Confirmation of an appointment is acknowledgement of this cancellation policy.</p>
-
+        
         </div>
       
       </div>
       
       <div class="row">
       
-        <div class="col-md-8 col-md-offset-2">
-          <%= f.input :terms_of_service, as: :boolean, checked_value: true, unchecked_value: false, label: 'I Agree with T.O.S', 
-          hint: 'By checking the checkbox and click the submit button I agree with Terms of Service of Stable Massage.' %>
+        <div class="col-md-6 col-md-offset-3 checkbox">
+          <%= f.label "I agree with the terms of service" %>
+          <%= f.check_box :terms_of_service %><br/>
+          <p>*I read and understood the terms of service</p>
+          
         </div>
       </div>
+          <%= f.submit 'Create Recipe', class: "btn btn-success" %>
+        
+      <% end %>
       
-      <%= f.submit 'Submit', class: "btn btn-success" %>
-    
-    <% end %>
-  
-  
-  </div><!-- WELL -->
-  
-</div><br><!-- row -->
-<br>
-<hr/>
+    </div><!-- FIELD FOR CLASS WELL -->
+</div><br/><br/><br/><!-- FILED FOR CLASS ROW -->

@@ -12,6 +12,7 @@
     
     }
     
+
     
 #logo:hover {
     color: white;
@@ -91,3 +92,19 @@ input.radio_buttons.inline label.radio{
 .checkbox-inline {
     padding-left: 5px;
     }
+    
+/*ERROR MESSAGES*/
+.error_messages p {
+    margin: 8px 10px;
+    
+    }
+    
+.field_with_errors {
+    display: inline;
+    }
+.field_with_errors .message {
+    color: #D00;
+    padding-left: 5px;
+    font-size: 12px;
+    font-weight: lighter;
+}

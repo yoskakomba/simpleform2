@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    @registrations = Registration.new
+    @registration = Registration.new
   end
 end

@@ -7,16 +7,14 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'simple_form'
 
 gem 'jquery-rails'
-gem 'pry-rails', '~> 0.3.4'
-
+gem 'pry', '~> 0.10.3'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0' 
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'client_side_validations'
 
 group :development, :test do
   gem 'byebug'
